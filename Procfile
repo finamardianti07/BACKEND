@@ -1,0 +1,1 @@
+web: gunicorn server_svm:app
