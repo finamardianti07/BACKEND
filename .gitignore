@@ -4,4 +4,3 @@ __pychace
 venv/
 .env
 .Ds_Store
-*.py
