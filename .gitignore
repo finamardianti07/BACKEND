@@ -1,0 +1,7 @@
+dataset/
+__pychace
+*.pyc
+venv/
+.env
+.Ds_Store
+*.py
