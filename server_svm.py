@@ -3,19 +3,19 @@ import cv2
 import numpy as np
 import joblib
 from flask_cors import CORS
-CORS(app)
 import os
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
-
 app = Flask(__name__)
+CORS(app)
 
 # load model
 model = joblib.load("model_svm.pkl")
 
 categories = ["bercak", "Hawar", "Healthy"]
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
 
 def preprocess_image(file):
     file_bytes = file.read()
@@ -54,7 +54,7 @@ def predict():
         confidence = float(proba.max() * 100)
 
         return jsonify({
-            "prediction": label,
+            "prediction": label,  
             "confidence": f"{confidence:.2f}%"
         })
 
